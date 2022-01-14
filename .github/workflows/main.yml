@@ -36,7 +36,7 @@ jobs:
       # make pdf
       # LATEX_FILE_NAME -> main.pdf generated
       - name: Set up Git repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@test
       - name: Build docker image
         uses: LCTO-TLCO/googledocstest/.github/actions/latex@main
       - name: Compile Tex File
