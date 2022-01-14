@@ -30,7 +30,7 @@ jobs:
   # build:
   #   name: Build
   test_job:
-    # runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     name: Example of compiling pdf
     steps:
       # make pdf
