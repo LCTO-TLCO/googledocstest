@@ -36,16 +36,16 @@ jobs:
       # make pdf
       # LATEX_FILE_NAME -> main.pdf generated
       - name: Set up Git repository
-        uses: actions/checkout@test
-      - name: Build docker image
-        uses: LCTO-TLCO/googledocstest/.github/actions/latex@main
+        uses: actions/checkout@v2
+#       - name: Build docker image
+#         uses: tsukuba-mas/platex-action@main
       - name: Compile Tex File
         id: compile_tex_file
-        uses: LCTO-TLCO/platex-action@main
+        uses: tsukuba-mas/platex-action@main
         with:
           LATEX_FILE_NAME: "main.tex"
-#       - name: echo words
-#         run: echo "Hello!"
+      - name: echo words
+        run: echo "Hello!"
 # Create Release
 #       - name: Create Release
 #         id: create_release
