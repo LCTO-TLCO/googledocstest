@@ -38,7 +38,6 @@ jobs:
           skicka-tokencache-json: ${{ secrets.SKICKA_TOKENCACHE_JSON }}
           upload-from: ./main.tex
           upload-to: /
-          # 回避手順を取った場合は以下の２つも必須
           google-client-id: ${{ secrets.SKICKA_CLIENT_ID }}
           google-client-secret: ${{ secrets.SKICKA_CLIENT_SECRET }}
 # Create Release
