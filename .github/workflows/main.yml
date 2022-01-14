@@ -35,8 +35,8 @@ jobs:
       - name: Upload to Google Drive
         uses: satackey/action-google-drive@v1.1.0
         with:
-          google-client-id: ${{ secrets.SKICKA_CLIENT_ID }}
-          google-client-secret: ${{ secrets.SKICKA_CLIENT_SECRET }}
+          google-client-id: ${{ secrets.GOOGLE_CLIENT_ID }}
+          google-client-secret: ${{ secrets.GOOGLE_CLIENT_SECRET }}
           skicka-tokencache-json: ${{ secrets.SKICKA_TOKENCACHE_JSON }}
           upload-from: ./main.pdf
           upload-to: /
