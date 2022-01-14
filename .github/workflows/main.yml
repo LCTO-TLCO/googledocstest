@@ -38,7 +38,7 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v1
       - name: Build docker image
-        uses: LCTO-TLCO/googledocstest/.github/actions/latex@master
+        uses: LCTO-TLCO/googledocstest/.github/actions/latex@main
       - name: Compile Tex File
         id: compile_tex_file
         uses: LCTO-TLCO/platex-action@main
