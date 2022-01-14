@@ -8,44 +8,42 @@ on:
       - "test"
 
 jobs:
-  deploy:
-    name: build-pdf
-    if: "!contains(github.event.head_commit.message, 'skip ci')"
-    runs-on: ubuntu-latest
-    container: arcatdmz/texlive
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Build PDF file
-        run: latexmk -pdf && latexmk -c && mkdir -p docs && cp *.pdf ./docs/
-      - name: Upload to Google Drive
-        uses: satackey/action-google-drive@v1
-        with:
-          skicka-tokencache-json: ${{ secrets.SKICKA_TOKENCACHE_JSON }}
-          upload-from: ./
-          upload-to: /path/to/upload
-          # 回避手順を取った場合は以下の２つも必須
-          google-client-id: ${{ secrets.SKICKA_CLIENT_ID }}
-          google-client-secret: ${{ secrets.SKICKA_CLIENT_SECRET }}
-  build:
-    name: Build
+  # deploy:
+  #   name: build-pdf
+  #   if: "!contains(github.event.head_commit.message, 'skip ci')"
+  #   runs-on: ubuntu-latest
+  #   container: arcatdmz/texlive
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v2
+  #     - name: Build PDF file
+  #       run: latexmk -pdf && latexmk -c && mkdir -p docs && cp *.pdf ./docs/
+  #     - name: Upload to Google Drive
+  #       uses: satackey/action-google-drive@v1
+  #       with:
+  #         skicka-tokencache-json: ${{ secrets.SKICKA_TOKENCACHE_JSON }}
+  #         upload-from: ./
+  #         upload-to: /path/to/upload
+  #         # 回避手順を取った場合は以下の２つも必須
+  #         google-client-id: ${{ secrets.SKICKA_CLIENT_ID }}
+  #         google-client-secret: ${{ secrets.SKICKA_CLIENT_SECRET }}
+  # build:
+  #   name: Build
   test_job:
-    runs-on: ubuntu-latest
+    # runs-on: ubuntu-latest
     name: Example of compiling pdf
     steps:
       # make pdf
       # LATEX_FILE_NAME -> main.pdf generated
-      - name: Set up Git repository
-        uses: actions/checkout@v1
-      - name: Build docker image
-        uses: LCTO-TLCO/googledocstest/.github/actions/latex@master
-
-        uses: actions/checkout@v2
-      - name: Compile Tex File
-        id: compile_tex_file
-        uses: tsukuba-mas/platex-action@main
-        with:
-          LATEX_FILE_NAME: "main.tex"
+      # - name: Set up Git repository
+      #   uses: actions/checkout@v1
+      # - name: Build docker image
+      #   uses: LCTO-TLCO/googledocstest/.github/actions/latex@master
+      # - name: Compile Tex File
+      #   id: compile_tex_file
+      #   uses: tsukuba-mas/platex-action@main
+      #   with:
+      #     LATEX_FILE_NAME: "main.tex"
       - name: echo words
         run: echo "Hello!"
 # Create Release
